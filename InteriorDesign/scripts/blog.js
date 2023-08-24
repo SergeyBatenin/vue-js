@@ -48,11 +48,4 @@ Vue.createApp({
 			],
 		};
 	},
-	methods: {
-		reverseText(event) {
-			// задание 1
-			const textEl = event.target.textContent;
-			event.target.textContent = [...textEl].reverse().join('');
-		},
-	},
 }).mount('#articles');

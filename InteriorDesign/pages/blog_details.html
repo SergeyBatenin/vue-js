@@ -11,8 +11,8 @@
 		<link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="../styles/blog.css" />
-		<title>Blog</title>
+		<link rel="stylesheet" href="../styles/blog_details.css" />
+		<title>Details</title>
 	</head>
 	<body>
 		<header class="header center">
@@ -27,78 +27,31 @@
 			</div>
 		</header>
 		<section class="banner">
-			<div class="banner__intro">
-				<h2 class="banner__intro_title">Articles & News</h2>
-				<p class="banner__intro_path">Home / Blog</p>
-			</div>
+			<img src="../images/banner_details.png" class="banner__logo"></img>
 		</section>
-		<section class="blog center">
-			<div class="blog__latest-post">
-				<h2 class="blog__latest-post_title">Latest Post</h2>
-				<div class="blog__latest-post_info">
-					<img
-						src="../images/latest_post.png"
-						alt="photo_interior"
-						class="blog__latest-post_photo"
-					/>
-					<div class="blog__latest-post_about">
-						<h3 class="blog__latest-post_subtitle">
-							Low Cost Latest Invented Interior Designing Ideas
-						</h3>
-						<p class="blog__latest-post_description">
-							Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim
-							maximus.posuere in.Contrary to popular belief.<br /><br />Lorem Ipsum is not simply
-							random text. It has roots in a piece of classica.
-						</p>
-						<div class="blog__latest-post_posting-date">
-							<p class="blog__latest-post_date">26 December,2022</p>
-							<a href="blog_details.html" class="blog__latest-post_more">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="52"
-									height="53"
-									viewBox="0 0 52 53"
-									fill="none"
-								>
-									<circle cx="26" cy="26.267" r="26" fill="#F4F0EC" />
-									<path
-										d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813"
-										stroke="#292F36"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-								</svg>
-							</a>
-						</div>
+        <section class="center">
+            <div class="content" id="articles">
+				<div class="content__articles">
+					<bgdetails v-for="item in sortedArticles" :key="item.id" :article="item"></bgdetails>
+				</div>
+				<div class="content__tags">
+					<h4 class="content__tags_heading">Tags</h4>
+					<div class="content__tags_buttons">
+						<button class="content__tags_button"
+						@click='changeActiveTags("Kitchen", $event)'>Kitchen
+						</button>
+						<button class="content__tags_button"
+						@click='changeActiveTags("Bedroom", $event)'>Bedroom</button>
+						<button class="content__tags_button"
+						@click='changeActiveTags("Building", $event)'>Building</button>
+						<button class="content__tags_button"
+						@click='changeActiveTags("Architecture", $event)'>Architecture</button>
+						<button class="content__tags_button content__tags_button-active"
+						@click='changeActiveTags("Kitchen Planning", $event)'>Kitchen Planning</button>
 					</div>
 				</div>
 			</div>
-			<div class="blog__content">
-				<h2 class="blog__content_title">Articles & News</h2>
-				<div class="blog__content_box" id="articles">
-					<div v-for="article in articles" :key="article.id" class="blog__item">
-						<img class="blog__item_img" :src="article.imgSrc" alt="design_photo" />
-						<div class="blog__item_type">{{article.typeDesign}}</div>
-						<h3 class="blog__item_title">{{article.title}}</h3>
-						<div class="blog__item_info">
-							<p class="blog__item_date">{{article.date}}</p>
-							<a href="blog_details.html" class="blog__item_more">
-								<img src="../images/arrow_right.png" alt="more info" />
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="blog__content_pagination">
-					<div class="blog__pagination_button blog__pagination_current-page">01</div>
-					<div class="blog__pagination_button">02</div>
-					<div class="blog__pagination_button">03</div>
-					<div class="blog__pagination_button">
-						<img src="../images/arrow_right.png" alt="" />
-					</div>
-				</div>
-			</div>
-		</section>
+        </section>
 		<footer class="footer center">
 			<div class="footer__description">
 				<div class="footer__description_head">
@@ -165,6 +118,6 @@
 			</div>
 		</footer>
 		<script src="https://unpkg.com/vue@next"></script>
-		<script src="../scripts/blog.js"></script>
+		<script src="../scripts/blog_details.js"></script>
 	</body>
 </html>
